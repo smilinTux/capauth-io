@@ -3,36 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CapAuth Protocol — Sovereign Capability-Based Authentication</title>
-    <meta name="description" content="The first truly sovereign identity protocol. PGP keys replace corporate logins. You own access to you.">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="CapAuth Protocol — You own access to you">
-    <meta property="og:description" content="Sovereign capability-based authentication built by AI, for AI, for humans.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://capauth.io">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔐</text></svg>">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Source+Sans+3:wght@400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <title>CapAuth Protocol — World's First P2P Identity Revolution</title>
+    <meta name="description" content="Stop giving corporations control over your identity. CapAuth is the world's first pure peer-to-peer identity protocol with AI delegation. Zero servers. Zero infrastructure. Maximum sovereignty.">
+    <link rel="canonical" href="https://capauth.io">
     
     <style>
-        /* CapAuth Brand Colors */
         :root {
-            --primary: #0A1628;
-            --secondary: #0E2B3D;
-            --accent: #00E5FF;
-            --yellow: #FFD166;
-            --green: #4CAF50;
-            --red: #FF6B6B;
-            --white: #F7FBFF;
-            --gray: #A9B2BB;
-            --dark-gray: #2A3441;
-            --black: #0B0B0B;
+            --black: #000000;
+            --dark-gray: #111111;
+            --gray: #888888;
+            --light-gray: #cccccc;
+            --white: #ffffff;
+            --accent: #00e5ff;
+            --accent-dark: #00acc1;
+            --accent-bright: #40f4ff;
+            --purple: #b388ff;
+            --pink: #ff4081;
+            --green: #00ff9f;
+            --gold: #ffd700;
         }
 
         * {
@@ -41,159 +29,129 @@
             box-sizing: border-box;
         }
 
-        html {
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #111111 50%, #1a1a2e 100%);
+            color: var(--white);
+            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        body {
-            font-family: 'Source Sans 3', sans-serif;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: var(--white);
-            line-height: 1.6;
-            min-height: 100vh;
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 229, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(179, 136, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(0, 255, 159, 0.05) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite alternate;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-        }
-
-        code, pre {
-            font-family: 'Fira Code', monospace;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        a:hover {
-            opacity: 0.8;
-        }
-
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 100;
-        }
-
-        .logo {
-            font-family: 'Inter', sans-serif;
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: var(--white);
-        }
-
-        .logo .accent {
-            color: var(--accent);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav ul a {
-            color: var(--gray);
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        nav ul a:hover {
-            color: var(--white);
+        @keyframes pulse {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.7; transform: scale(1.1); }
         }
 
         /* Hero Section */
         .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 8rem 2rem 6rem;
-            max-width: 1000px;
-            margin: 0 auto;
+            padding: 2rem;
             position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 229, 255, 0.1) 0%, transparent 70%);
-            pointer-events: none;
+            background: linear-gradient(135deg, 
+                rgba(0, 229, 255, 0.1) 0%, 
+                rgba(179, 136, 255, 0.1) 50%, 
+                rgba(0, 255, 159, 0.1) 100%);
         }
 
         .hero-icon {
-            font-size: 4rem;
+            font-size: 8rem;
             margin-bottom: 1rem;
-            display: inline-block;
-            filter: drop-shadow(0 8px 24px rgba(0, 229, 255, 0.3));
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.5));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
             line-height: 1.1;
             margin-bottom: 1rem;
-            position: relative;
-            z-index: 2;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 50%, var(--pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+            letter-spacing: -0.02em;
+        }
+
+        @keyframes glow {
+            0% { filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.3)); }
+            100% { filter: drop-shadow(0 0 30px rgba(179, 136, 255, 0.6)); }
         }
 
         .hero .tagline {
-            font-size: 1.5rem;
-            color: var(--accent);
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--accent-bright);
             margin-bottom: 1rem;
-            font-weight: 600;
-            position: relative;
-            z-index: 2;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
         }
 
         .hero .subtitle {
-            font-size: 1.2rem;
-            color: var(--gray);
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            color: var(--light-gray);
+            max-width: 800px;
+            line-height: 1.6;
             margin-bottom: 3rem;
-            position: relative;
-            z-index: 2;
         }
 
-        .hero .cta-buttons {
+        .cta-buttons {
             display: flex;
-            gap: 1rem;
-            justify-content: center;
+            gap: 1.5rem;
             flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
+            justify-content: center;
+            align-items: center;
         }
 
         .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             padding: 1rem 2rem;
-            border-radius: 8px;
+            font-size: 1.1rem;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.2s;
-            border: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
             cursor: pointer;
-            font-size: 1rem;
+            border: 2px solid transparent;
         }
 
         .btn-primary {
-            background: var(--accent);
-            color: var(--primary);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
+            color: var(--black);
+            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.3);
         }
 
         .btn-primary:hover {
-            background: var(--white);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 229, 255, 0.5);
+            filter: brightness(1.1);
         }
 
         .btn-secondary {
@@ -206,378 +164,419 @@
             border-color: var(--accent);
             color: var(--accent);
             transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.2);
         }
 
-        /* Feature Sections */
-        .section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
+        /* Revolutionary Badge */
+        .revolution-badge {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--pink) 100%);
+            color: var(--black);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            animation: bounce 2s infinite;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
         }
 
-        .section h2 {
-            font-size: 2.5rem;
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Problem Statement */
+        .problem-section {
+            padding: 6rem 2rem;
             text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .section .subtitle {
-            text-align: center;
-            color: var(--gray);
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-        }
-
-        /* What is CapAuth */
-        .what-is {
             background: rgba(255, 255, 255, 0.02);
-            border-radius: 16px;
-            padding: 3rem;
-            margin: 2rem 0;
         }
 
-        /* Comparison Table */
-        .comparison-table {
-            overflow-x: auto;
-            margin: 2rem 0;
+        .problem-section h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: var(--pink);
+            text-shadow: 0 0 20px rgba(255, 64, 129, 0.5);
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        th, td {
-            padding: 1.2rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        th {
-            background: var(--dark-gray);
-            font-weight: 600;
-            color: var(--accent);
-        }
-
-        td:first-child {
-            font-weight: 600;
-        }
-
-        .traditional {
-            color: var(--red);
-        }
-
-        .capauth {
-            color: var(--green);
-        }
-
-        /* Features Grid */
-        .features-grid {
+        .problem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 4rem auto 0;
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, rgba(255, 64, 129, 0.1) 0%, rgba(179, 136, 255, 0.1) 100%);
+            border: 1px solid rgba(255, 64, 129, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 64, 129, 0.2);
+        }
+
+        .problem-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-bright);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.05) 0%, rgba(179, 136, 255, 0.05) 100%);
+        }
+
+        .features-section h2 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--green) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .features-section .subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--light-gray);
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .feature-card {
             background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
         }
 
         .feature-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-8px);
             border-color: var(--accent);
-            box-shadow: 0 8px 32px rgba(0, 229, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 229, 255, 0.2);
         }
 
         .feature-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
-            color: var(--accent);
+            color: var(--accent-bright);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .feature-card p {
-            color: var(--gray);
+        .feature-card .emoji {
+            font-size: 1.8rem;
         }
 
-        /* Architecture */
-        .architecture {
-            background: var(--dark-gray);
-            border-radius: 16px;
-            padding: 3rem;
-            margin: 3rem 0;
-        }
-
-        .architecture pre {
-            background: var(--primary);
-            padding: 1.5rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        /* Getting Started */
-        .getting-started {
+        /* AI Delegation Section */
+        .ai-section {
+            padding: 8rem 2rem;
             text-align: center;
-            background: linear-gradient(45deg, var(--accent), var(--yellow));
-            color: var(--primary);
-            border-radius: 16px;
+            background: radial-gradient(circle at center, rgba(0, 255, 159, 0.1) 0%, transparent 70%);
+        }
+
+        .ai-section h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: var(--green);
+            text-shadow: 0 0 30px rgba(0, 255, 159, 0.6);
+        }
+
+        .ai-callout {
+            background: linear-gradient(135deg, rgba(0, 255, 159, 0.1) 0%, rgba(0, 229, 255, 0.1) 100%);
+            border: 2px solid var(--green);
+            border-radius: 20px;
             padding: 3rem;
-            margin: 3rem 0;
+            max-width: 800px;
+            margin: 3rem auto;
+            position: relative;
         }
 
-        .getting-started h2 {
-            color: var(--primary);
+        .ai-callout::before {
+            content: '🤖';
+            position: absolute;
+            top: -1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            background: var(--dark-gray);
+            padding: 0.5rem;
+            border-radius: 50%;
         }
 
-        .getting-started code {
-            background: rgba(255, 255, 255, 0.2);
-            color: var(--primary);
+        /* Get Started Section */
+        .get-started {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(179, 136, 255, 0.1) 100%);
+            text-align: center;
+        }
+
+        .get-started h2 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--accent);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: left;
+            font-family: 'Fira Code', Monaco, monospace;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--purple) 50%, var(--pink) 100%);
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
         /* Footer */
-        footer {
+        .footer {
+            padding: 4rem 2rem;
             text-align: center;
-            padding: 3rem 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--black);
+            border-top: 1px solid var(--dark-gray);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
             color: var(--gray);
-            font-size: 0.9rem;
-            margin-top: 4rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        .footer-brand {
-            color: var(--yellow);
-            font-weight: 600;
+        .footer-links a:hover {
+            color: var(--accent);
         }
 
-        /* Responsive */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            nav ul {
-                gap: 1rem;
-            }
-            
             .hero {
-                padding: 4rem 1rem 3rem;
+                padding: 1rem;
             }
-            
-            .section {
-                padding: 3rem 1rem;
+
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
             }
-            
-            .what-is, .architecture {
-                padding: 2rem;
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .revolution-badge {
+                top: 1rem;
+                right: 1rem;
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .features-grid,
+            .problem-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">🔐 <span class="accent">Cap</span>Auth</div>
-        <ul>
-            <li><a href="#what">What is it?</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#architecture">How it Works</a></li>
-            <li><a href="#start">Get Started</a></li>
-            <li><a href="https://github.com/smilinTux/capauth" target="_blank">GitHub</a></li>
-        </ul>
-    </nav>
+    <div class="bg-animation"></div>
+    
+    <div class="revolution-badge">
+        🚀 WORLD'S FIRST P2P IDENTITY PROTOCOL
+    </div>
 
     <section class="hero">
-        <div class="hero-icon">🔐</div>
-        <h1>CapAuth Protocol</h1>
-        <p class="tagline">"You own access to you."</p>
-        <p class="subtitle">The first truly sovereign capability-based authentication protocol.<br>Built by AI. For AI. For humans.</p>
+        <div class="hero-icon">🌐</div>
+        <h1>The Identity Revolution</h1>
+        <p class="tagline">"Set up once. Let your AI manage forever."</p>
+        <p class="subtitle">
+            Stop giving corporations control over your identity. CapAuth is the world's first 
+            <strong>pure peer-to-peer identity protocol</strong> with AI delegation. 
+            Zero servers. Zero infrastructure. Maximum sovereignty.
+        </p>
         <div class="cta-buttons">
-            <a href="#start" class="btn btn-primary">Get Started</a>
-            <a href="https://github.com/smilinTux/capauth" class="btn btn-secondary" target="_blank">View on GitHub</a>
+            <a href="#start" class="btn btn-primary">🚀 Start Your Revolution</a>
+            <a href="https://github.com/smilinTux/capauth" class="btn btn-secondary" target="_blank">📖 Read Protocol</a>
         </div>
     </section>
 
-    <section class="section" id="what">
-        <h2>🎯 What is CapAuth?</h2>
-        <p class="subtitle">Stop giving corporations control over your identity.</p>
-        
-        <div class="what-is">
-            <p><strong>CapAuth</strong> replaces corporate login systems with cryptographic sovereignty. Your PGP key becomes your identity. You issue capability tokens for granular access control. Your data stays where <em>you</em> choose.</p>
-            <br>
-            <p>No more "Sign in with Google." No more OAuth dependency. No more platform lock-in.</p>
-            <p><strong>Just you, your keys, and complete control.</strong></p>
-        </div>
-
-        <div class="comparison-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Traditional Auth</th>
-                        <th>CapAuth</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Identity</strong></td>
-                        <td class="traditional">Email/phone they own</td>
-                        <td class="capauth">PGP key you own</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Access</strong></td>
-                        <td class="traditional">Role-based ("Admin")</td>
-                        <td class="capauth">Capability-based ("Read:name only")</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Delegation</strong></td>
-                        <td class="traditional">Admin grants permissions</td>
-                        <td class="capauth">You issue per-relationship tokens</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Data Storage</strong></td>
-                        <td class="traditional">Stored on their server</td>
-                        <td class="capauth">Stored where <em>you</em> choose</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Revocation</strong></td>
-                        <td class="traditional">They revoke access</td>
-                        <td class="capauth">You revoke tokens</td>
-                    </tr>
-                </tbody>
-            </table>
+    <section class="problem-section">
+        <h2>🔥 The Corporate Identity Prison</h2>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <h3>❌ "Sign in with Google"</h3>
+                <p>Your identity locked behind corporate walls. They control who you are online.</p>
+            </div>
+            <div class="problem-card">
+                <h3>⚠️ OAuth Dependency</h3>
+                <p>Every login requires permission from Big Tech. Your access = their whim.</p>
+            </div>
+            <div class="problem-card">
+                <h3>🕵️ Surveillance Capitalism</h3>
+                <p>Every login tracked, analyzed, monetized. Your identity is their product.</p>
+            </div>
         </div>
     </section>
 
-    <section class="section" id="features">
-        <h2>✨ Key Features</h2>
-        <p class="subtitle">Sovereign identity meets granular access control.</p>
+    <section class="features-section">
+        <h2>⚡ Revolutionary Features</h2>
+        <p class="subtitle">Why CapAuth changes everything</p>
         
         <div class="features-grid">
             <div class="feature-card">
-                <h3>🔑 PGP Root Identity</h3>
-                <p>Your PGP public key is your identity. Self-issued, self-sovereign. No corporation can revoke it.</p>
+                <h3><span class="emoji">🌐</span>Pure P2P Mesh Network</h3>
+                <p><strong>Zero servers. Zero relays. Zero infrastructure.</strong> Direct peer-to-peer connections using LibP2P + Nostr dual transport. Inspired by BitChat architecture - truly decentralized.</p>
             </div>
             
             <div class="feature-card">
-                <h3>🎯 Capability Tokens</h3>
-                <p>Issue granular permissions per relationship. Henry gets your name, George gets your full profile.</p>
+                <h3><span class="emoji">🤖</span>AI Delegation</h3>
+                <p><strong>Set up sovereign identity once, let your AI manage it forever.</strong> Your OpenClaw bot becomes your identity copilot, handling PGP keys and capability tokens seamlessly.</p>
             </div>
             
             <div class="feature-card">
-                <h3>🏠 Storage Choice</h3>
-                <p>Local database, encrypted cloud, IPFS — you choose where your data lives. Not them.</p>
+                <h3><span class="emoji">🔑</span>PGP Sovereignty</h3>
+                <p><strong>Your PGP key = your identity.</strong> Self-issued, self-sovereign, impossible to revoke. No corporation controls your digital existence.</p>
             </div>
             
             <div class="feature-card">
-                <h3>⚡ Instant Revocation</h3>
-                <p>Revoke access instantly by invalidating tokens. No waiting for "account deletion" processes.</p>
+                <h3><span class="emoji">📡</span>Offline-First Operation</h3>
+                <p><strong>Works without internet.</strong> Mesh networking continues during emergencies, disasters, or network outages. True resilience.</p>
             </div>
             
             <div class="feature-card">
-                <h3>🔗 Delegation Chains</h3>
-                <p>Delegate tokens with limited scope and expiration. Perfect for temporary access or agent systems.</p>
+                <h3><span class="emoji">⚡</span>Instant Capability Control</h3>
+                <p><strong>Granular permissions per relationship.</strong> Sarah gets your name, Mike gets full profile. Revoke instantly, no "account deletion" waiting.</p>
             </div>
             
             <div class="feature-card">
-                <h3>🛡️ SK Jail Reputation</h3>
-                <p>Community-based trust system. Bad actors get isolated while maintaining privacy.</p>
+                <h3><span class="emoji">💰</span>Zero Infrastructure Costs</h3>
+                <p><strong>No hosting. No servers. No fees.</strong> Pure P2P means the network runs for free. Build the bridge, not the toll booth.</p>
             </div>
         </div>
     </section>
 
-    <section class="section" id="architecture">
-        <h2>🏗️ How it Works</h2>
-        <p class="subtitle">Simple concepts, powerful results.</p>
+    <section class="ai-section">
+        <h2>🤖 AI Makes Sovereignty Simple</h2>
         
-        <div class="architecture">
-            <h3>Architecture Overview</h3>
-            <pre><code>User A (PGP Key)        Registry          User B (PGP Key)
-    │                        │                    │
-    ├─ Register ────────────→│                    │
-    │  (pubkey + pointer)    │                    │
-    │                        │                    │
-    ├────── Issue CapToken ──│───────→│          │
-    │  (caps: ["read:name"]) │   (stored token)  │
-    │                        │                    │
-    │                        │← Request data ─────┤
-    │←── Serve filtered ─────│   (with token)     │
-       profile (name only)   │                    │</code></pre>
-            
-            <h3>Core Process</h3>
-            <ol style="color: var(--gray); line-height: 1.8;">
-                <li><strong>Register:</strong> Your PGP public key + data storage pointer goes in the registry</li>
-                <li><strong>Issue:</strong> Create capability tokens for specific relationships and permissions</li>
-                <li><strong>Access:</strong> Others use your tokens to access exactly what you authorized</li>
-                <li><strong>Control:</strong> Revoke, modify, or expire tokens at any time</li>
-            </ol>
-        </div>
-    </section>
-
-    <section class="section getting-started" id="start">
-        <h2>🚀 Get Started</h2>
-        <p>Ready to own your identity? Here's how to begin:</p>
-        <br>
-        
-        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; margin: 2rem 0;">
-            <code style="font-size: 1.1rem;">
-                # Install CapAuth CLI<br>
-                npm install -g capauth<br><br>
-                
-                # Initialize your sovereign identity<br>
-                capauth init<br><br>
-                
-                # Register with the network<br>
-                capauth register
-            </code>
-        </div>
-        
-        <div style="background: rgba(0,255,200,0.1); padding: 1.5rem; border-radius: 8px; margin: 2rem 0; border-left: 4px solid var(--accent);">
-            <p><strong>🤖 Have an OpenClaw AI assistant?</strong> Even easier!</p>
-            <p>Just tell your favorite OpenClaw bot: <em>"Use the CapAuth skill to help me set up sovereign identity"</em></p>
-            <p>The skill will guide both you and your AI through PGP key generation and setup. Your bot becomes your sovereign identity copilot! 🚀</p>
-        </div>
-        
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
-            <a href="https://github.com/smilinTux/capauth" class="btn btn-secondary" target="_blank">📖 Read the Docs</a>
-            <a href="https://github.com/smilinTux/capauth/blob/main/PROTOCOL.md" class="btn btn-secondary" target="_blank">🔧 Protocol Spec</a>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2>🤝 Join the Movement</h2>
-        <p class="subtitle">Help us build sovereign infrastructure that actually doesn't suck.</p>
-        
-        <div style="text-align: center; margin-top: 3rem;">
-            <p style="margin-bottom: 2rem; color: var(--gray);">
-                CapAuth is open source, community-driven, and designed for everyone who believes identity should be self-sovereign.
+        <div class="ai-callout">
+            <h3>Have an OpenClaw AI assistant? Even easier!</h3>
+            <p style="font-size: 1.2rem; margin: 1.5rem 0;">
+                Just tell your favorite OpenClaw bot: 
+                <em>"Use the CapAuth skill to help me set up sovereign identity"</em>
             </p>
-            
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="https://github.com/smilinTux/capauth" class="btn btn-primary" target="_blank">⭐ Star on GitHub</a>
-                <a href="https://github.com/smilinTux" class="btn btn-secondary" target="_blank">🐧 smilinTux Org</a>
-                <a href="https://smilintux.org" class="btn btn-secondary" target="_blank">🏠 Main Website</a>
-            </div>
+            <p style="color: var(--green); font-weight: 600;">
+                The skill guides both you AND your AI through PGP key generation and setup. 
+                Your bot becomes your sovereign identity copilot! 🚀
+            </p>
+        </div>
+        
+        <p style="font-size: 1.3rem; color: var(--light-gray); margin-top: 3rem;">
+            <strong>This is the breakthrough:</strong> Humans hold the master keys, AI manages the complexity. 
+            Set up once, delegate forever. Sovereignty without the learning curve.
+        </p>
+    </section>
+
+    <section class="get-started" id="start">
+        <h2>🚀 Join the Revolution</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Ready to own your identity? Here's how to begin:</p>
+        
+        <div class="code-block">
+            <div style="color: var(--gray); margin-bottom: 1rem;"># Install CapAuth CLI</div>
+            <div style="color: var(--accent);">npm install -g capauth</div>
+            <br>
+            <div style="color: var(--gray);"># Initialize your sovereign identity</div>
+            <div style="color: var(--green);">capauth init</div>
+            <br>
+            <div style="color: var(--gray);"># Register with the P2P network</div>
+            <div style="color: var(--purple);">capauth register</div>
+        </div>
+        
+        <div style="margin-top: 3rem;">
+            <a href="https://github.com/smilinTux/capauth" class="btn btn-primary" target="_blank">
+                📖 Read Full Documentation
+            </a>
+            <a href="https://github.com/smilinTux/capauth/blob/main/PROTOCOL.md" class="btn btn-secondary" target="_blank" style="margin-left: 1rem;">
+                🔧 Protocol Specification
+            </a>
         </div>
     </section>
 
-    <footer>
-        <p>🔐 CapAuth Protocol — Making Identity Sovereign Again</p>
-        <p class="footer-brand">🐧 A smilinTux Product • S&K Holdings QT</p>
-        <p>Apache 2.0 License • <a href="https://github.com/smilinTux/capauth" target="_blank">GitHub</a> • Built by AI, for AI, for humans</p>
-        <p style="margin-top: 1rem; font-family: 'Fira Code', monospace; font-size: 0.8rem;">#staycuriousANDkeepsmilin</p>
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://github.com/smilinTux/capauth" target="_blank">GitHub</a>
+            <a href="https://smilinTux.org" target="_blank">smilinTux</a>
+            <a href="https://skhelp.io" target="_blank">SKHelp.io</a>
+        </div>
+        <p style="color: var(--gray);">
+            Built by <a href="https://smilinTux.org" style="color: var(--accent);">smilinTux</a> • 
+            Open source forever • Apache 2.0 License
+        </p>
+        <p style="color: var(--gray); margin-top: 1rem; font-size: 0.9rem;">
+            🐧 Making decentralized cool again, one smile at a time.
+        </p>
     </footer>
 </body>
-</html><!-- Updated Sat Feb 14 08:09:16 PM EST 2026 -->
-<!-- Fresh deploy Sat Feb 14 08:16:42 PM EST 2026 -->
+</html>
