@@ -545,18 +545,24 @@
         <p style="font-size: 1.2rem; margin-bottom: 2rem;">Ready to own your identity? Here's how to begin:</p>
         
         <div class="code-block">
-            <div style="color: var(--gray); margin-bottom: 1rem;"># Install SKCapstone (includes CapAuth)</div>
-            <div style="color: var(--accent);">pip install skcapstone</div>
+            <div style="color: var(--gray); margin-bottom: 1rem;"># Install CapAuth</div>
+            <div style="color: var(--accent);">pip install capauth</div>
             <br>
-            <div style="color: var(--gray);"># Initialize your sovereign identity</div>
-            <div style="color: var(--green);">skcapstone init</div>
+            <div style="color: var(--gray);"># Create your sovereign identity</div>
+            <div style="color: var(--green);">capauth init --name "YourName" --email "you@example.com"</div>
             <br>
-            <div style="color: var(--gray);"># Issue a capability token</div>
-            <div style="color: var(--purple);">skcapstone token issue --subject alice --cap "memory:read"</div>
+            <div style="color: var(--gray);"># Designate your AI advocate</div>
+            <div style="color: var(--purple);">capauth advocate set --name "YourAI" --pubkey ai.pub.asc</div>
             <br>
-            <div style="color: var(--gray);"># Check sovereign status</div>
-            <div style="color: var(--gold);">skcapstone status</div>
+            <div style="color: var(--gray);"># List active capability grants</div>
+            <div style="color: var(--gold);">capauth grants list</div>
         </div>
+        
+        <p style="font-size: 1rem; color: var(--gray); margin-top: 1.5rem;">
+            Want the full sovereign agent framework?
+            <a href="https://skcapstone.io" style="color: var(--accent);">SKCapstone</a>
+            bundles CapAuth with memory, trust, security, and P2P sync.
+        </p>
         
         <div style="margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
             <a href="https://github.com/smilinTux/capauth" class="btn btn-primary" target="_blank">
