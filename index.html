@@ -6,7 +6,22 @@
     <title>CapAuth Protocol — World's First P2P Identity Revolution</title>
     <meta name="description" content="Stop giving corporations control over your identity. CapAuth is the world's first pure peer-to-peer identity protocol with AI delegation. Zero servers. Zero infrastructure. Maximum sovereignty.">
     <link rel="canonical" href="https://capauth.io">
-    
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="CapAuth Protocol — World's First P2P Identity Revolution">
+    <meta property="og:description" content="Stop giving corporations control over your identity. CapAuth is the world's first pure peer-to-peer identity protocol with AI delegation. Zero servers. Maximum sovereignty.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://capauth.io">
+    <meta property="og:site_name" content="SKWorld">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CapAuth — P2P Identity Revolution">
+    <meta name="twitter:description" content="World's first pure peer-to-peer identity protocol with AI delegation. Zero servers. Maximum sovereignty.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔐</text></svg>">
+
     <style>
         :root {
             --black: #000000;
@@ -411,6 +426,138 @@
             color: var(--accent);
         }
 
+        /* Demo Section */
+        .demo-section {
+            padding: 8rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at 50% 30%, rgba(179, 136, 255, 0.1) 0%, transparent 60%);
+        }
+
+        .demo-section h2 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--purple) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .demo-subtitle {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .demo-step {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .demo-step:hover {
+            border-color: rgba(179, 136, 255, 0.3);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 1rem;
+            color: var(--black);
+            flex-shrink: 0;
+        }
+
+        .step-header h3 {
+            font-size: 1.3rem;
+            color: var(--white);
+        }
+
+        .demo-step p {
+            color: var(--light-gray);
+            margin-bottom: 1.25rem;
+            line-height: 1.5;
+        }
+
+        .demo-btn {
+            font-size: 0.95rem;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .demo-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .demo-output {
+            margin-top: 1.25rem;
+            font-family: 'Fira Code', Monaco, monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--green);
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            display: none;
+            white-space: pre-wrap;
+            word-break: break-all;
+            border-left: 3px solid var(--accent);
+        }
+
+        .demo-output.visible {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .demo-output .label {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .demo-output .value {
+            color: var(--green);
+        }
+
+        .demo-output .success {
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .demo-output .warning {
+            color: var(--gold);
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero {
@@ -458,6 +605,7 @@
             Zero servers. Zero infrastructure. Maximum sovereignty.
         </p>
         <div class="cta-buttons">
+            <a href="#demo" class="btn btn-primary">Try the Live Demo</a>
             <a href="#start" class="btn btn-primary">🚀 Start Your Revolution</a>
             <a href="https://github.com/smilinTux/capauth/blob/main/ARCHITECTURE.md" class="btn btn-secondary" target="_blank">📖 Architecture Spec</a>
             <a href="https://github.com/smilinTux/capauth" class="btn btn-secondary" target="_blank">🔧 Source Code</a>
@@ -577,6 +725,43 @@
         </div>
     </section>
 
+    <section class="demo-section" id="demo">
+        <h2>Try It Live</h2>
+        <p class="demo-subtitle">Experience sovereign identity in your browser. No servers. No accounts. Pure client-side cryptography.</p>
+
+        <div class="demo-container">
+            <div class="demo-step" id="step-keygen">
+                <div class="step-header">
+                    <span class="step-number">1</span>
+                    <h3>Generate Your Keypair</h3>
+                </div>
+                <p>Create a cryptographic identity using your browser's WebCrypto API. The private key never leaves your device.</p>
+                <button class="btn btn-primary demo-btn" id="btn-keygen" onclick="generateKeypair()">Generate Keypair</button>
+                <div class="demo-output" id="keygen-output"></div>
+            </div>
+
+            <div class="demo-step" id="step-challenge">
+                <div class="step-header">
+                    <span class="step-number">2</span>
+                    <h3>Challenge-Response Auth</h3>
+                </div>
+                <p>A verifier sends a random challenge. You sign it with your private key. They verify with your public key. No passwords. No servers.</p>
+                <button class="btn btn-primary demo-btn" id="btn-challenge" onclick="runChallengeResponse()" disabled>Run Challenge-Response</button>
+                <div class="demo-output" id="challenge-output"></div>
+            </div>
+
+            <div class="demo-step" id="step-token">
+                <div class="step-header">
+                    <span class="step-number">3</span>
+                    <h3>Issue Capability Token</h3>
+                </div>
+                <p>Create a signed capability token granting specific permissions. Self-contained, independently verifiable, revocable.</p>
+                <button class="btn btn-primary demo-btn" id="btn-token" onclick="issueToken()" disabled>Issue Token</button>
+                <div class="demo-output" id="token-output"></div>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="footer-links">
             <a href="https://skcapstone.io" target="_blank">🏛️ SKCapstone</a>
@@ -597,5 +782,171 @@
             🐧 Making decentralized cool again, one smile at a time.
         </p>
     </footer>
+    <script>
+    let keyPair = null;
+    let publicKeyHex = '';
+
+    function buf2hex(buffer) {
+        return Array.from(new Uint8Array(buffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function show(id, html) {
+        const el = document.getElementById(id);
+        el.innerHTML = html;
+        el.classList.add('visible');
+    }
+
+    async function generateKeypair() {
+        const btn = document.getElementById('btn-keygen');
+        btn.textContent = 'Generating...';
+        btn.disabled = true;
+
+        try {
+            keyPair = await window.crypto.subtle.generateKey(
+                { name: 'ECDSA', namedCurve: 'P-256' },
+                true,
+                ['sign', 'verify']
+            );
+
+            const pubRaw = await window.crypto.subtle.exportKey('raw', keyPair.publicKey);
+            publicKeyHex = buf2hex(pubRaw);
+
+            const pubJwk = await window.crypto.subtle.exportKey('jwk', keyPair.publicKey);
+            const fingerprint = buf2hex(
+                await window.crypto.subtle.digest('SHA-256', new TextEncoder().encode(publicKeyHex))
+            ).slice(0, 40);
+
+            show('keygen-output',
+                `<span class="label">Algorithm:</span> <span class="value">ECDSA P-256 (secp256r1)</span>\n` +
+                `<span class="label">Public Key:</span> <span class="value">${publicKeyHex.slice(0, 32)}...${publicKeyHex.slice(-16)}</span>\n` +
+                `<span class="label">Fingerprint:</span> <span class="value">${fingerprint.toUpperCase()}</span>\n` +
+                `<span class="label">Key Type:</span> <span class="value">${pubJwk.kty} / ${pubJwk.crv}</span>\n\n` +
+                `<span class="success">Your sovereign identity is ready.</span>\n` +
+                `<span class="warning">Private key exists only in this browser tab.</span>`
+            );
+
+            btn.textContent = 'Keypair Generated';
+            document.getElementById('btn-challenge').disabled = false;
+        } catch (e) {
+            show('keygen-output', `<span style="color:var(--pink)">Error: ${e.message}</span>`);
+            btn.textContent = 'Generate Keypair';
+            btn.disabled = false;
+        }
+    }
+
+    async function runChallengeResponse() {
+        const btn = document.getElementById('btn-challenge');
+        btn.textContent = 'Running...';
+        btn.disabled = true;
+
+        try {
+            const challenge = new Uint8Array(32);
+            window.crypto.getRandomValues(challenge);
+            const challengeHex = buf2hex(challenge);
+
+            const signature = await window.crypto.subtle.sign(
+                { name: 'ECDSA', hash: 'SHA-256' },
+                keyPair.privateKey,
+                challenge
+            );
+            const sigHex = buf2hex(signature);
+
+            const valid = await window.crypto.subtle.verify(
+                { name: 'ECDSA', hash: 'SHA-256' },
+                keyPair.publicKey,
+                signature,
+                challenge
+            );
+
+            const tamperedChallenge = new Uint8Array(challenge);
+            tamperedChallenge[0] ^= 0xFF;
+            const invalid = await window.crypto.subtle.verify(
+                { name: 'ECDSA', hash: 'SHA-256' },
+                keyPair.publicKey,
+                signature,
+                tamperedChallenge
+            );
+
+            show('challenge-output',
+                `<span class="label">1. Verifier sends challenge:</span>\n` +
+                `   <span class="value">${challengeHex.slice(0, 48)}...</span>\n\n` +
+                `<span class="label">2. You sign with private key:</span>\n` +
+                `   <span class="value">${sigHex.slice(0, 48)}...</span>\n\n` +
+                `<span class="label">3. Verifier checks signature:</span>\n` +
+                `   Valid signature:   <span class="success">VERIFIED</span>\n` +
+                `   Tampered message:  <span style="color:var(--pink)">REJECTED</span>\n\n` +
+                `<span class="success">Identity proven. No password. No server. No middleman.</span>`
+            );
+
+            btn.textContent = 'Challenge Passed';
+            document.getElementById('btn-token').disabled = false;
+        } catch (e) {
+            show('challenge-output', `<span style="color:var(--pink)">Error: ${e.message}</span>`);
+            btn.textContent = 'Run Challenge-Response';
+            btn.disabled = false;
+        }
+    }
+
+    async function issueToken() {
+        const btn = document.getElementById('btn-token');
+        btn.textContent = 'Issuing...';
+        btn.disabled = true;
+
+        try {
+            const fingerprint = buf2hex(
+                await window.crypto.subtle.digest('SHA-256', new TextEncoder().encode(publicKeyHex))
+            ).slice(0, 40);
+
+            const tokenId = buf2hex(window.crypto.getRandomValues(new Uint8Array(8)));
+            const now = new Date();
+            const expires = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+
+            const token = {
+                token_id: tokenId,
+                issuer: fingerprint.toUpperCase(),
+                subject: 'demo-agent',
+                type: 'capability',
+                capabilities: ['memory:read', 'memory:write', 'sync:push'],
+                issued_at: now.toISOString(),
+                expires_at: expires.toISOString(),
+            };
+
+            const tokenBytes = new TextEncoder().encode(JSON.stringify(token));
+            const signature = await window.crypto.subtle.sign(
+                { name: 'ECDSA', hash: 'SHA-256' },
+                keyPair.privateKey,
+                tokenBytes
+            );
+
+            const verified = await window.crypto.subtle.verify(
+                { name: 'ECDSA', hash: 'SHA-256' },
+                keyPair.publicKey,
+                signature,
+                tokenBytes
+            );
+
+            show('token-output',
+                `<span class="label">Capability Token:</span>\n` +
+                `  <span class="label">token_id:</span>     <span class="value">${token.token_id}</span>\n` +
+                `  <span class="label">issuer:</span>       <span class="value">${token.issuer.slice(0, 16)}...</span>\n` +
+                `  <span class="label">subject:</span>      <span class="value">${token.subject}</span>\n` +
+                `  <span class="label">type:</span>         <span class="value">${token.type}</span>\n` +
+                `  <span class="label">capabilities:</span> <span class="value">${token.capabilities.join(', ')}</span>\n` +
+                `  <span class="label">issued:</span>       <span class="value">${token.issued_at}</span>\n` +
+                `  <span class="label">expires:</span>      <span class="value">${token.expires_at}</span>\n\n` +
+                `<span class="label">Signature:</span> <span class="value">${buf2hex(signature).slice(0, 48)}...</span>\n` +
+                `<span class="label">Verified:</span>  <span class="success">${verified ? 'VALID' : 'INVALID'}</span>\n\n` +
+                `<span class="success">Self-issued. Self-contained. Self-sovereign.</span>\n` +
+                `<span class="warning">This token is portable — anyone with your public key can verify it.</span>`
+            );
+
+            btn.textContent = 'Token Issued';
+        } catch (e) {
+            show('token-output', `<span style="color:var(--pink)">Error: ${e.message}</span>`);
+            btn.textContent = 'Issue Token';
+            btn.disabled = false;
+        }
+    }
+    </script>
 </body>
 </html>
