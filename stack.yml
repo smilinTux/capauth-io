@@ -1,0 +1,56 @@
+version: '3.8'
+
+networks:
+  capauth-prod:
+    external: true
+  cloud-public-prod:
+    external: true
+
+services:
+  server:
+    image: skgit.skstack01.douno.it/skadmin/capauth-service:latest
+    environment:
+      - CAPAUTH_SERVICE_ID=capauth.skstack01.douno.it
+      - CAPAUTH_BASE_URL=https://capauth.skstack01.douno.it
+      - CAPAUTH_DB_PATH=/data/keys.db
+      - CAPAUTH_ADMIN_TOKEN=${CAPAUTH_ADMIN_TOKEN}
+      - CAPAUTH_REQUIRE_APPROVAL=false
+    volumes:
+      - /var/data/capauth-prod/data:/data
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - "node.role == worker"
+      resources:
+        reservations:
+          memory: 128M
+          cpus: '0.1'
+        limits:
+          memory: 512M
+          cpus: '0.5'
+      restart_policy:
+        condition: any
+        delay: 10s
+      labels:
+        - "traefik.enable=true"
+        - "traefik.swarm.network=cloud-public-prod"
+        - "traefik.http.routers.capauth.rule=Host(`capauth.skstack01.douno.it`)"
+        - "traefik.http.routers.capauth.entrypoints=websecure"
+        - "traefik.http.routers.capauth.tls=true"
+        - "traefik.http.routers.capauth.tls.certresolver=main"
+        - "traefik.http.routers.capauth.tls.options=intermediate@file"
+        - "traefik.http.routers.capauth.middlewares=default@file"
+        - "traefik.http.routers.capauth.service=capauth"
+        - "traefik.http.services.capauth.loadbalancer.server.port=8420"
+        - "traefik.http.services.capauth.loadbalancer.server.scheme=http"
+    networks:
+      - capauth-prod
+      - cloud-public-prod
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8420/capauth/v1/status"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
