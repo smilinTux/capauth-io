@@ -99,7 +99,7 @@ graph TB
 
     subgraph "DID Publishing"
         T1 --&gt; |~/.skcapstone/did/key.json| Local[Local Storage]
-        T2 --&gt; |~/.skcomm/well-known/did.json| Tailscale[Tailscale Serve]
+        T2 --&gt; |~/.skcomms/well-known/did.json| Tailscale[Tailscale Serve]
         T3 --&gt; |publish-did.sh| CF[Cloudflare KV]
         CF --&gt; |did:web:ws.weblink.skworld.io| Public[Public Resolution]
     end
@@ -137,10 +137,10 @@ sequenceDiagram
 </ul>
 <h3>Tier 2 — did:web mesh (Tailscale-Private)</h3>
 <ul>
-<li>Served via Tailscale Serve at <code>~/.skcomm/well-known/did.json</code></li>
+<li>Served via Tailscale Serve at <code>~/.skcomms/well-known/did.json</code></li>
 <li>References Tailscale magic-DNS hostname only — never raw <code>100.x.x.x</code> IPs</li>
 <li>Includes full service endpoints:</li>
-<li><code>SKCommMessaging</code> — <code>/api/v1/profile</code></li>
+<li><code>SKCommsMessaging</code> — <code>/api/v1/profile</code></li>
 <li><code>CapAuthVerification</code> — <code>/api/v1/did/verify</code></li>
 <li><code>AgentProfile</code> — <code>/api/v1/profile/identity</code></li>
 <li>Includes optional <code>skworld:agentCard</code> with capabilities and entity type</li>
