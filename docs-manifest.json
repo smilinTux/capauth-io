@@ -2,7 +2,7 @@
   "repo": "smilinTux/capauth",
   "branch": "main",
   "path": "docs",
-  "generated": "2026-08-29",
+  "generated": "2026-08-30",
   "note": "Committed fallback for the /docs viewer when the GitHub Contents API is unavailable or rate-limited. Regenerate from: python docs-manifest-gen.py smilinTux/capauth --out docs-manifest.json",
   "docs": [
     {
@@ -43,7 +43,7 @@
     },
     {
       "name": "CLAIMS.md",
-      "title": "CapAuth OIDC Claims Reference"
+      "title": "CLAIMS"
     },
     {
       "name": "COLD_MACHINE_BOOTSTRAP_AND_DR.md",
